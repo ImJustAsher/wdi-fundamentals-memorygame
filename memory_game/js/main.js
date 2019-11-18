@@ -27,14 +27,27 @@ var cards = [
 
 var cardsInPlay = [];
 
-function checkForMatch() {
+var checkForMatch = function() {
+	if (cardsInPlay.length == 2) {
 	if (cardsInPlay[0] === cardsInPlay[1]) {
 		alert("You found a match!");
 	} else {
 		alert("Sorry, try again");
-	};
+	}
 
 };
+
+var flipCard = function() {
+	var cardId = parseInt(this.getAttribute('data-id'),10);
+	console.log("User flipped " + (cards[cardsId].rank));
+	this.src = cards[cardsId].cardImage;
+	cardsInPlay.push(cards[cardsId].rank);
+	checkForMatch();
+	console.log(cards[cardId].cardImage);
+	console.log(cards[cardId].suit);
+}
+};
+
 
 
 
